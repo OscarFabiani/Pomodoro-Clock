@@ -1,0 +1,33 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: aqua;
+}
+#main-controls {
+  display: flex;
+}
+#break {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+#break-controls {
+  display: flex;
+}
+#session {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+#session-controls {
+  display: flex;
+}
+#timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#timer-controls {
+  display: flex;
+}
