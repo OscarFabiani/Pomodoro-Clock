@@ -3,6 +3,8 @@ body {
   color: antiquewhite;
   font-size: 20px;
   font-weight: bold;
+  font-family: 'Play';
+  /*text-align: center;*/
 }
 #clock {
   display: flex;
@@ -13,11 +15,13 @@ body {
 }
 #title {
   margin: 0;
+  font-size: 2.5em;
   background-color: cadetblue;
 }
 #main-controls {
   display: flex;
-  width: 50%;
+  justify-content: space-between;
+  width: 75%;
   margin-top: 5%;
   background-color: burlywood;
 }
@@ -27,25 +31,28 @@ body {
   align-items: center;
   width: 45%;
   background-color: darkgreen;
+  font-size: 1.5em;
 }
 #break-label {
   display: flex;
+  justify-content: center;
+  width: 250px;
   background-color: deeppink;
 }
 #break-controls {
   display: flex;
+  justify-content: space-between;
+  margin-top: 10%;
+  width: 125px;
   background-color: blue;
 }
 #break-decrement {
-  display: flex;
   background-color: forestgreen;
 }
 #break-length {
-  display: flex;
   background-color: fuchsia;
 }
 #break-increment {
-  display: flex;
   background-color: gray;
 }
 #session {
@@ -54,52 +61,64 @@ body {
   align-items: center;
   width: 45%;
   background-color: blueviolet;
+  font-size: 1.5em;
 }
 #session-label {
   display: flex;
+  justify-content: center;
+  width: 250px;
   background-color: deepskyblue;
 }
 #session-controls {
   display: flex;
+  justify-content: space-between;
+  margin-top: 10%;
+  width: 125px;
   background-color: brown
 }
 #session-decrement {
-  display: flex;
   background-color: forestgreen;
 }
 #session-length {
-  display: flex;
   background-color: fuchsia;
 }
 #session-increment {
-  display: flex;
   background-color: gray;
 }
 #timer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  justify-content: center;
+  margin-top: 5%;
+  width: 300px;
+  box-sizing: border-box;
+  padding: 30px;
+  border: 10px solid blue;
+  border-radius: 50px;
   background-color: coral;
 }
 #timer-label {
-  display: flex;
   background-color: darkmagenta;
+  font-size: 1.5em;
 }
 #time-left {
-  display: flex;
+  margin-top: 5%;
   background-color: darkred;
+  font-size: 3em;
+  font-family: 'Share Tech Mono';
 }
 #timer-controls {
   display: flex;
-  width: 50%;
+  justify-content: space-between;
+  margin-top: 5%;
+  width: 125px;
   background-color: darkgoldenrod;
+  font-size: 1.5em;
 }
 #start_stop {
-  display: flex;
-  background-color: darkkhaki;
+  background-color: darkslategray;
 }
 #reset {
-  display: flex;
   background-color: darkslategrey;
 }
