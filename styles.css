@@ -1,33 +1,105 @@
 body {
+  background-color: midnightblue;
+  color: antiquewhite;
+  font-size: 20px;
+  font-weight: bold;
+}
+#clock {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: aqua;
+  margin-top: 10%;
+  background-color: cornflowerblue;;
+}
+#title {
+  margin: 0;
+  background-color: cadetblue;
 }
 #main-controls {
   display: flex;
+  width: 50%;
+  margin-top: 5%;
+  background-color: burlywood;
 }
 #break {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
+  width: 45%;
+  background-color: darkgreen;
+}
+#break-label {
+  display: flex;
+  background-color: deeppink;
 }
 #break-controls {
   display: flex;
+  background-color: blue;
+}
+#break-decrement {
+  display: flex;
+  background-color: forestgreen;
+}
+#break-length {
+  display: flex;
+  background-color: fuchsia;
+}
+#break-increment {
+  display: flex;
+  background-color: gray;
 }
 #session {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
+  width: 45%;
+  background-color: blueviolet;
+}
+#session-label {
+  display: flex;
+  background-color: deepskyblue;
 }
 #session-controls {
   display: flex;
+  background-color: brown
+}
+#session-decrement {
+  display: flex;
+  background-color: forestgreen;
+}
+#session-length {
+  display: flex;
+  background-color: fuchsia;
+}
+#session-increment {
+  display: flex;
+  background-color: gray;
 }
 #timer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 50%;
+  background-color: coral;
+}
+#timer-label {
+  display: flex;
+  background-color: darkmagenta;
+}
+#time-left {
+  display: flex;
+  background-color: darkred;
 }
 #timer-controls {
   display: flex;
+  width: 50%;
+  background-color: darkgoldenrod;
+}
+#start_stop {
+  display: flex;
+  background-color: darkkhaki;
+}
+#reset {
+  display: flex;
+  background-color: darkslategrey;
 }

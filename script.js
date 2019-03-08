@@ -12,104 +12,84 @@ const startStop = document.getElementById('start_stop');
 const reset = document.getElementById('reset');
 const beep = document.getElementById('beep');
 
-
-let breakLengthVal = Number(breakLength.textContent);
-let sessionLengthVal = Number(sessionLength.textContent);
-
-let minsLeft = Number(timeLeft.textContent.match(/\d+/));
-let secsLeft = Number(timeLeft.textContent.match(/(?<=:)\d+/));
-
-
-//ADDING EVENT LISTENERS
-breakDecrement.addEventListener('click', subtractBreak);
-breakIncrement.addEventListener('click', addBreak);
-sessionDecrement.addEventListener('click', subtractSession);
-sessionIncrement.addEventListener('click', addSession);
-startStop.addEventListener('click', toggleTimer);
-reset.addEventListener('click', resetTimer);
-
-
+let minsLeft;
+let secsLeft;
 let intervalID;
 let paused = true;
 
-resetTimer();
+//ADDING EVENT LISTENERS
+breakDecrement.addEventListener('click', subtractBreakLength);
+breakIncrement.addEventListener('click', addBreakLength);
+sessionDecrement.addEventListener('click', subtractSessionLength);
+sessionIncrement.addEventListener('click', addSessionLength);
+startStop.addEventListener('click', toggleTimerActivity);
+reset.addEventListener('click', resetClock);
+
+//INITIALIZING
+resetClock();
 
 
 //FUNCTIONS
 
-function subtractBreak() {
-  if (paused == true && breakLengthVal > 1) {
-    breakLengthVal--;
-    breakLength.textContent = breakLengthVal;
-    if (timerLabel.textContent == 'Break') {
-      minsLeft = breakLengthVal;
+function setTime() {
+  //Sets timeLeft based on minsLeft in MM:SS format.
+  if (minsLeft < 10) {
+    timeLeft.textContent = '0' + minsLeft + ':00';
+  }
+  else {
+    timeLeft.textContent = minsLeft + ':00';
+  }
+}
+
+function subtractLength(label, element) {
+  //Decrements the textContent of an HTML element if timer is paused and updates the timer.
+  if (paused == true && element.textContent > 1) {
+    element.textContent--;
+    if (timerLabel.textContent == label) {
+      minsLeft = element.textContent;
       secsLeft = 0;
-      if (minsLeft < 10) {
-        timeLeft.textContent = '0' + minsLeft + ':00';
-      }
-      else {
-        timeLeft.textContent = minsLeft + ':00';
-      }
+      setTime();
     }
   }
 }
 
-function addBreak() {
-  if (paused == true && breakLengthVal < 60) {
-    breakLengthVal++;
-    breakLength.textContent = breakLengthVal;
-    if (timerLabel.textContent == 'Break') {
-      minsLeft = breakLengthVal;
+function addLength(label, element) {
+  //Increments the textContent of an HTML element if timer is paused and updates the timer.
+  if (paused == true && element.textContent < 60) {
+    element.textContent++;
+    if (timerLabel.textContent == label) {
+      minsLeft = element.textContent;
       secsLeft = 0;
-      if (minsLeft < 10) {
-        timeLeft.textContent = '0' + minsLeft + ':00';
-      }
-      else {
-        timeLeft.textContent = minsLeft + ':00';
-      }
+      setTime();
     }
   }
 }
 
-function subtractSession() {
-  if (paused == true && sessionLengthVal > 1) {
-    sessionLengthVal--;
-    sessionLength.textContent = sessionLengthVal;
-    if (timerLabel.textContent == 'Session') {
-      minsLeft = sessionLengthVal;
-      secsLeft = 0;
-      if (minsLeft < 10) {
-        timeLeft.textContent = '0' + minsLeft + ':00';
-      }
-      else {
-        timeLeft.textContent = minsLeft + ':00';
-      }   
-    }
-  }
+function subtractBreakLength() {
+  //Event handler function for specific element.
+  subtractLength('Break', breakLength);
 }
 
-function addSession() {
-  if (paused == true && sessionLengthVal < 60) {
-    sessionLengthVal++;
-    sessionLength.textContent = sessionLengthVal;
-    if (timerLabel.textContent == 'Session') {
-      minsLeft = sessionLengthVal;
-      secsLeft = 0;
-      if (minsLeft < 10) {
-        timeLeft.textContent = '0' + minsLeft + ':00';
-      }
-      else {
-        timeLeft.textContent = minsLeft + ':00';
-      }
-    }
-  }
+function addBreakLength() {
+  //Event handler function for specific element.
+  addLength('Break', breakLength);
+}
+
+function subtractSessionLength() {
+  //Event handler function for specific element.
+  subtractLength('Session', sessionLength);
+}
+
+function addSessionLength() {
+  //Event handler function for specific element.
+  addLength('Session', sessionLength);
 }
 
 function runTimer() {
+  //Decrements secsLeft then switches the timer mode if time is expired or sets the timer in MM:SS format according to the time remaining.
   secsLeft--;
   if (minsLeft == 0 && secsLeft == -1) {
-    console.log('swapped');
-    swapBreak();
+    toggleTimerMode();
   }
   else if (secsLeft == -1) {
     minsLeft--;
@@ -139,59 +119,48 @@ function runTimer() {
   }
 }
 
-function toggleTimer() {
-  if (paused == true) {
-    paused = false;
-    intervalID = setInterval(runTimer, 50);
+function toggleTimerMode() {
+  //Switches the timer mode and plays an audio clip.
+  secsLeft = 0;
+  if (timerLabel.textContent == 'Session') {
+    timerLabel.textContent = 'Break';
+    minsLeft = breakLength.textContent;
   }
   else {
-    paused = true;
-    clearInterval(intervalID);
+    timerLabel.textContent = 'Session';
+    minsLeft = sessionLength.textContent;
   }
+  setTime();
+  beep.play();
 }
 
-function resetTimer() {
+function toggleTimerActivity() {
+  //Pauses and resumes the timer.
   if (paused == false) {
     paused = true;
     clearInterval(intervalID);
   }
-  timerLabel.textContent = 'Session';
+  else {
+    paused = false;
+    intervalID = setInterval(runTimer, 50);
+  }
+}
+
+function resetClock() {
+  //Pauses and resets the clock to default settings.
+  if (paused == false) {
+    paused = true;
+    clearInterval(intervalID);
+  }
+  breakLength.textContent = 2;
+  sessionLength.textContent = 1;
   minsLeft = 1;
   secsLeft = 0;
-  breakLengthVal = 2;
-  breakLength.textContent = breakLengthVal;
-  sessionLengthVal = 1;
-  sessionLength.textContent = sessionLengthVal;
-  if (minsLeft < 10) {
-    timeLeft.textContent = '0' + minsLeft + ':00';
-  }
-  else {
-    timeLeft.textContent = minsLeft + ':00';
-  }
+  timerLabel.textContent = 'Session';
+  setTime();
   beep.pause();
   beep.currentTime = 0;
 }
 
-function swapBreak() {
-  beep.play();
-  if (timerLabel.textContent == 'Session') {
-    console.log('timer-label set to Break');
-    timerLabel.textContent = 'Break';
-    minsLeft = breakLengthVal;
-  }
-  else {
-    console.log('timer-label set to Session');
-    timerLabel.textContent = 'Session';
-    minsLeft = sessionLengthVal;
-  }
-  secsLeft = 0;
-  if (minsLeft < 10) {
-    timeLeft.textContent = '0' + minsLeft + ':00';
-  }
-  else {
-    timeLeft.textContent = minsLeft + ':00';
-  }
-}
 
-
-//REFACTOR CODE AND ADD STYLING
+//ADD STYLING
