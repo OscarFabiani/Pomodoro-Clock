@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <head>
+  <title>Pomodoro Clock by Oscar Fabiani</title>
   <link rel="stylesheet" href="styles.css" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
-  <div id="clock">
-      <h1 id="title">Pomodoro Clock</h1>
-      <div id="main-controls">
-          <div id="break">
-              <div id="break-label">Break Length</div>
-              <div id="break-controls">
-                <div id="break-decrement"><i class="fas fa-arrow-circle-down"></i></div>
-                <div id="break-length"></div>
-                <div id="break-increment"><i class="fas fa-arrow-circle-up"></i></div>
-              </div>
-          </div>
-          <div id="session">
-              <div id="session-label">Session Length</div>
-              <div id="session-controls">
-                <div id="session-decrement"><i class="fas fa-arrow-circle-down"></i></div>
-                <div id="session-length"></div>
-                <div id="session-increment"><i class="fas fa-arrow-circle-up"></i></div>
-              </div>
-          </div>
-      </div>
-      <div id="timer">
-        <div id="timer-label"></div>
-        <div id="time-left"></div>
-      </div>
-      <div id="timer-controls">
-        <div id="start_stop"><i class="fas fa-play-circle"></i><i class="fas fa-pause-circle"></i></div>
-        <div id="reset"><i class="fas fa-sync"></i></div>
-      </div>
-  </div>
+  <main id="clock" class="clock">
+    <h2 id="title">Pomodoro Clock</h2>
+    <div id="main-controls" class="main-controls">
+      <section id="break" class="mode-wrapper">
+        <h4 id="break-label" class="mode-label">Break Length</h4>
+        <div id="break-controls" class="mode-controls">
+          <button id="break-decrement" class="fas fa-arrow-circle-down"></button>
+          <output id="break-length"></output>
+          <button id="break-increment" class="fas fa-arrow-circle-up"></button>
+        </div>
+      </section>
+      <section id="session" class="mode-wrapper">
+        <h4 id="session-label" class="mode-label">Session Length</h4>
+        <div id="session-controls" class="mode-controls">
+          <button id="session-decrement" class="fas fa-arrow-circle-down"></button>
+          <output id="session-length"></output>
+          <button id="session-increment" class="fas fa-arrow-circle-up"></button>
+        </div>
+      </section>
+    </div>
+    <section id="timer" class="timer">
+      <h4 id="timer-label"></h4>
+      <output id="time-left" class="time-left"></output>
+    </section>
+    <div id="timer-controls" class="timer-controls">
+      <button id="start_stop"><i class="fas fa-play-circle"></i><i class="fas fa-pause-circle"></i></button>
+      <button id="reset" class="fas fa-sync"></button>
+    </div>
+  </main>
+  <footer></footer>
   <audio id="beep" src="https://goo.gl/65cBl1"></audio>
   <script src="script.js" type="text/javascript"></script>
 </body>
