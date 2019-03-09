@@ -6,21 +6,21 @@
   <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
-<body>
-  <main id="clock" class="clock">
+<body class="flex-centered">
+  <main id="clock" class="clock flex-centered">
     <h2 id="title">Pomodoro Clock</h2>
-    <div id="main-controls" class="main-controls">
-      <section id="break" class="mode-wrapper">
-        <h4 id="break-label" class="mode-label">Break Length</h4>
-        <div id="break-controls" class="mode-controls">
+    <div id="main-controls" class="main-controls flex-space-between">
+      <section id="break" class="mode-wrapper flex-centered">
+        <h4 id="break-label">Break Length</h4>
+        <div id="break-controls" class="mode-controls flex-space-between">
           <button id="break-decrement" class="fas fa-arrow-circle-down"></button>
           <output id="break-length"></output>
           <button id="break-increment" class="fas fa-arrow-circle-up"></button>
         </div>
       </section>
-      <section id="session" class="mode-wrapper">
-        <h4 id="session-label" class="mode-label">Session Length</h4>
-        <div id="session-controls" class="mode-controls">
+      <section id="session" class="mode-wrapper flex-centered">
+        <h4 id="session-label">Session Length</h4>
+        <div id="session-controls" class="mode-controls flex-space-between">
           <button id="session-decrement" class="fas fa-arrow-circle-down"></button>
           <output id="session-length"></output>
           <button id="session-increment" class="fas fa-arrow-circle-up"></button>
@@ -31,7 +31,7 @@
       <h4 id="timer-label"></h4>
       <output id="time-left" class="time-left"></output>
     </section>
-    <div id="timer-controls" class="timer-controls">
+    <div id="timer-controls" class="timer-controls flex-space-between">
       <button id="start_stop"><i class="fas fa-play-circle"></i><i class="fas fa-pause-circle"></i></button>
       <button id="reset" class="fas fa-sync"></button>
     </div>
