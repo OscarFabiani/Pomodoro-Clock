@@ -1,7 +1,13 @@
-
 /*Tag styling*/
+html {
+  font-size: 35px;
+}
 body {
+  height: 100vh;
   background-color: midnightblue;
+  color: antiquewhite;
+  font-weight: bold;
+  font-family: 'Play';
   text-align: center;
 }
 body, h2, h4 {
@@ -40,25 +46,18 @@ button:active {
   align-items: center;
   justify-content: space-between;
 }
+.flex-column {
+  flex-direction: column;
+}
 
 /*Element specific classes(out/top to in/bottom)*/
-.clock {
-  flex-direction: column;
-  margin-top: 10vh;
-  width: 18em;
-  color: antiquewhite;
-  font-size: 30px;
-  font-weight: bold;
-  font-family: 'Play';
-}
 .main-controls {
+  flex-wrap: wrap;
   margin-top: 0.1em;
-  width: 100%;
 }
 .mode-wrapper {
-  flex-direction: column;
   margin-top: 0.6em;
-  width: 100%;
+  width: 9em;
 }
 .mode-controls {
   margin-top: 0.7em;
@@ -81,16 +80,8 @@ button:active {
 }
 
 /*Media queries*/
-@media (max-height: 500px) {
-  .clock {
-    margin: 0;
-  }
-}
-@media (max-width: 550px) {
-  .clock {
+@media (max-width: 630px), (max-height: 525px) {
+  html {
     font-size: 25px;
-  }
-  .main-controls {
-    flex-direction: column;
   }
 }

@@ -142,7 +142,7 @@ function toggleTimerActivity() {
   }
   else {
     paused = false;
-    intervalID = setInterval(runTimer, 50);
+    intervalID = setInterval(runTimer, 1000);
   }
 }
 
@@ -152,9 +152,9 @@ function resetClock() {
     paused = true;
     clearInterval(intervalID);
   }
-  breakLength.textContent = 2;
-  sessionLength.textContent = 1;
-  minsLeft = 1;
+  breakLength.textContent = 1;
+  sessionLength.textContent = 5;
+  minsLeft = 5;
   secsLeft = 0;
   timerLabel.textContent = 'Session';
   setTime();
@@ -163,4 +163,4 @@ function resetClock() {
 }
 
 
-//FINISH REFACTORING CSS: ATTEMPT TO ELIMINATE MOST MEDIA QUERIES AND POSSIBLY ADD TIMER STYLING.
+//ADD FOOTER
