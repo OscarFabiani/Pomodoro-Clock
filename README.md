@@ -11,6 +11,6 @@ A Pomodoro-style timer app with buttons to start/pause the timer, reset the time
 * Completely responsive across all devices and browsers
 * Styled from scratch (no framework) utilizing CSS
 
-<a href="https://oscarfabiani.com/pomodoro-clock/">View Live Demo</a>
+<a href="https://oscarfabiani.com/Pomodoro-Clock/">View Live Demo</a>
 
-<a href="https://oscarfabiani.com/pomodoro-clock/"><img src="https://oscarfabiani.com/assets/pomodoro-clock-screenshot.png" title="Pomodoro Clock" alt="Pomodoro Clock"></a>
+<a href="https://oscarfabiani.com/Pomodoro-Clock/"><img src="https://oscarfabiani.com/assets/pomodoro-clock-screenshot.png" title="Pomodoro Clock" alt="Pomodoro Clock"></a>
